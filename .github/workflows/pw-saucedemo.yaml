@@ -30,4 +30,4 @@ jobs:
         with:
           name: sauceDemo-playwright-report
           path: playwright-report/
-          retention-days: 5
+          retention-days: 7
