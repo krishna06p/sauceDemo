@@ -23,3 +23,11 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test --reporter=html
+        # Add this specific step to save the report
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: sauceDemo-playwright-report
+          path: playwright-report/
+          retention-days: 5
