@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Install Playwright browsers') {
             steps {
-                sh 'npx playwright install'
+                sh 'sudo npx playwright install-deps'
             }
         }
         stage('run tests') {
