@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 const { createBdd } = require('playwright-bdd');
 const { Given, When, Then } = createBdd();
 
@@ -17,4 +18,7 @@ Then('I should see the products page', async ({ page }) => {
 
 Then('I should see an error message', async ({page}) => {
   await page.waitForSelector('.error-message-container', { timeout: 5000 });    
+  await expect(page.getByTestId('error')).toBeVisible();
+  //const errorMsg = (await page.waitForSelector('.error-message-container')).innerText();
+  //console.log(errorMsg);
 });
